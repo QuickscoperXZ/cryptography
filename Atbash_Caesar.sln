@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vishener", "Vishener\Vishen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vernam", "Vernam\Vernam.csproj", "{7C13714B-D82E-480F-91AE-5F44EEDE45DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alberti", "Alberti\Alberti.csproj", "{57343F8A-396A-4733-B495-83F3BF6CA61E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7C13714B-D82E-480F-91AE-5F44EEDE45DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C13714B-D82E-480F-91AE-5F44EEDE45DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C13714B-D82E-480F-91AE-5F44EEDE45DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57343F8A-396A-4733-B495-83F3BF6CA61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57343F8A-396A-4733-B495-83F3BF6CA61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57343F8A-396A-4733-B495-83F3BF6CA61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57343F8A-396A-4733-B495-83F3BF6CA61E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

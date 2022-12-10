@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 
 namespace PolibiySquare
@@ -8,10 +8,10 @@ namespace PolibiySquare
         static void Main(string[] args)
         {
             string alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
-            int pos = 0;
-            char[,] square = new char[6, 6];
+            int pos = 0; //вводим дополнительый итератор
+            char[,] square = new char[6, 6]; //создаём таблицу - квадрат
             
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 6; i++) //заполняем таблицу
             {
                 for (int j = 0; j < 6; j++)
                 {
@@ -26,7 +26,7 @@ namespace PolibiySquare
                     pos++;
                 }
             }
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 6; i++) //выводим таблицу(сугубо для проверки)
             {
                 for (int j = 0; j < 6; j++)
                 {
@@ -34,11 +34,10 @@ namespace PolibiySquare
                 }
                 Console.WriteLine();
             }
-            string unencryptedText = Console.ReadLine().ToLower();
-            unencryptedText = unencryptedText.Replace(" ", "");
-            char[] encryptedText = new char[unencryptedText.Length];
-            pos = 0;
-            foreach (var item in unencryptedText)
+            string unencryptedText = Console.ReadLine().ToLower().Replace(" ", ""); //считываем шифруемый текст
+            char[] encryptedText = new char[unencryptedText.Length]; //создаём контейнер для зашифрованного сообщения
+            pos = 0; //обнуляем итератор
+            foreach (var item in unencryptedText) //шифруем в соответствии с правилами
             {
                 for (int i = 0; i < 6; i++)
                 {
@@ -48,7 +47,7 @@ namespace PolibiySquare
                         {
                             try
                             {
-                                if (item == 'ь' || item == 'ъ' || item == 'ы')
+                                if (item == 'ь' || item == 'ъ' || item == 'ы') //переносим значение в первую строку если под буквой в таблице ничего нет, таких символа только три
                                 {
                                     encryptedText[pos] = square[0, j];
                                 }
@@ -60,14 +59,14 @@ namespace PolibiySquare
                             }
                             catch
                             {
-                                encryptedText[pos] = square[0, j];
+                                encryptedText[pos] = square[0, j]; //это тут избыточно
                                 pos++;
                             }
                         }
                     }
                 }
             }
-            Console.WriteLine(new string(encryptedText));
+            Console.WriteLine(new string(encryptedText)); //выводим зашифрованное сообщение
         }
     }
 }

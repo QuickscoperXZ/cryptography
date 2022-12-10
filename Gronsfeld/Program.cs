@@ -7,13 +7,13 @@ namespace Gronsfeld
     {
         static void Main(string[] args)
         {
-            Regex pattern = new Regex("[a-zA-Z]");
+            Regex pattern = new Regex("[a-zA-Z]"); //регулярное выражение для проверки есть ли буква в ключе.
             string alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-            List<string> GronsfeldTable = new List<string>();
+            List<string> GronsfeldTable = new List<string>(); //создаём таблицу и добавляем в неё алфавит под соответствующим индексом
             GronsfeldTable.Add(alphabet);
 
-            for (int i = 1; i < 10; i++)
+            for (int i = 1; i < 10; i++) //заполняем таблицу
             {
                 GronsfeldTable.Add(new Func<string>(() =>
                 {
@@ -24,7 +24,7 @@ namespace Gronsfeld
                 })());
             }
 
-            string unencryptedText = Console.ReadLine().Replace(" ", "").ToLower();
+            string unencryptedText = Console.ReadLine().Replace(" ", "").ToLower(); //считываем шифруемое сообщение
             string key = new Func<string>(() =>
             {
                 string returnableValue = Console.ReadLine().Replace(" ", "").ToLower();
@@ -32,7 +32,7 @@ namespace Gronsfeld
                 {
                     throw new FormatException();
                 }
-                if (returnableValue.Length != unencryptedText.Length)
+                if (returnableValue.Length != unencryptedText.Length) //считываем ключ, затем убеждаемся что в нем нет букв и затем дописываем его до длинны сообщения
                 {
                     while (returnableValue.Length < unencryptedText.Length)
                     {
@@ -52,7 +52,7 @@ namespace Gronsfeld
 
             for (int i = 0; i < unencryptedText.Length; i++)
             {
-                int charIndexer = Convert.ToInt32(unencryptedText[i]) - 97;
+                int charIndexer = Convert.ToInt32(unencryptedText[i]) - 97; //шифруем сообщения путём преобразования буквы и ключа в кординаты зашифрованной буквы
                 int keyIndexer = Int32.Parse(Convert.ToString(key[i]));
 
                 encryptedText[i] = GronsfeldTable[keyIndexer][charIndexer];

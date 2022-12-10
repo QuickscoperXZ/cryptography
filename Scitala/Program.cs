@@ -7,8 +7,8 @@ namespace System
     {
         static void Main(string[] args)
         {
-            string unencryptedText = Console.ReadLine();
-            int dia = Convert.ToInt32(Console.ReadLine());
+            string unencryptedText = Console.ReadLine(); //считываем шифруемое сообщение и диаметр
+            int dia = Convert.ToInt32(Console.ReadLine()); 
             int len;
             if (dia < 2)
             {

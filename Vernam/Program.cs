@@ -7,8 +7,8 @@ namespace Vernam
     {
         static void Main()
         {
-            string unencryptedText = Console.ReadLine().ToLower().Replace(" ", "");
-            char[] key = new Func<char[]>(() =>
+            string unencryptedText = Console.ReadLine().ToLower().Replace(" ", ""); //считываем шифруемое сообщение
+            char[] key = new Func<char[]>(() => //считываем ключ и дописываем его до длинны шифруемого сообщения
             {
                 string returnableValue = Console.ReadLine().Replace(" ", "").ToLower();
                 if (returnableValue.Length != unencryptedText.Length)
@@ -26,7 +26,7 @@ namespace Vernam
                 }
             })();
 
-            string encryptedText = new Func<string>(() =>
+            string encryptedText = new Func<string>(() => // шифруем путём поразрядного исключаещего или
             {
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < unencryptedText.Length; i++)
@@ -41,52 +41,6 @@ namespace Vernam
             {
                 Console.WriteLine(Convert.ToInt32(item));
             }
-
-            //List<int> unencryptedTextValues = new Func<List<int>>(() =>
-            //{
-            //    List<int> returnableValue = new List<int>();
-            //    foreach (var item in unencryptedText)
-            //    {
-            //        returnableValue.Add(Convert.ToInt32(item));
-            //    }
-            //    return returnableValue;
-            //})();
-            //List<int> keyValues = new Func<List<int>>(() =>
-            //{
-            //    List<int> returnableValue = new List<int>();
-            //    foreach (var item in unencryptedText)
-            //    {
-            //        returnableValue.Add(Convert.ToInt32(item));
-            //    }
-            //    return returnableValue;
-            //})();
-
-            //string encryptedText = new Func<string>(() =>
-            //{
-            //    List<char> returnableValue = new List<char>();
-            //    for (int i = 0; i < unencryptedTextValues.Count; i++)
-            //    {
-            //        Console.Write($"{Convert.ToChar(unencryptedTextValues[i] ^ keyValues[i])}|");
-            //        returnableValue.Add(Convert.ToChar(unencryptedTextValues[i]^keyValues[i]));
-            //    }
-            //    return new string(returnableValue.ToArray());
-            //})();
-            //List<int> encryptedTextValues = new Func<List<int>>(() =>
-            //{
-            //    List<int> returnableValue = new List<int>();
-            //    for (int i = 0; i < unencryptedTextValues.Count; i++)
-            //    {
-            //        Console.Write($"{unencryptedTextValues[i] ^ keyValues[i]}|");
-            //        returnableValue.Add(unencryptedTextValues[i] ^ keyValues[i]);
-            //    }
-            //    return returnableValue;
-            //})();
-
-            //Console.WriteLine(encryptedText);
-            //foreach (var item in encryptedTextValues)
-            //{
-            //    Console.Write($"{item}|");
-            //}
         }
     }
 }

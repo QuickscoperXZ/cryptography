@@ -8,10 +8,10 @@ namespace Vishener
         {
             string alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-            List<string> VishenerSquare = new List<string>();
-            VishenerSquare.Add(alphabet);
+            List<string> VishenerSquare = new List<string>(); //создаём контейнер под таблицу
+            VishenerSquare.Add(alphabet); //добавляем в неё алфавит
 
-            for (int i = 1; i < 25; i++)
+            for (int i = 1; i < 25; i++) //строим таблицу со всеми сдвигами
             {
                 VishenerSquare.Add(new Func<string>(() =>
                 {
@@ -22,8 +22,8 @@ namespace Vishener
                 })());
             }
 
-            string unencryptedText = Console.ReadLine().Replace(" ", "").ToLower();
-            string key = new Func<string>(() =>
+            string unencryptedText = Console.ReadLine().Replace(" ", "").ToLower(); //считываем шифруемое сообщение
+            string key = new Func<string>(() => //считываем ключ и дополняем его до длинны сообщения
             {
                 string returnableValue = Console.ReadLine().Replace(" ", "").ToLower();
                 if (returnableValue.Length != unencryptedText.Length)
@@ -41,7 +41,7 @@ namespace Vishener
                     return returnableValue;
                 }
             })();
-            char[] encryptedText = new char[unencryptedText.Length];
+            char[] encryptedText = new char[unencryptedText.Length]; //шифруем сообщение путём вычисления кординат зашифрованной буквы в таблице
 
             for (int i = 0; i < unencryptedText.Length; i++)
             {

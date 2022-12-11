@@ -7,13 +7,13 @@ namespace Gronsfeld
     {
         static void Main(string[] args)
         {
-            Regex pattern = new Regex("[a-zA-Z]");
+            Regex pattern = new Regex("[a-zA-Z]"); //регулярное выражения для проверки есть ли в ключе буквы
             string alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-            List<string> GronsfeldTable = new List<string>();
+            List<string> GronsfeldTable = new List<string>(); //создаём контейнер под таблицу и записываем в неё алфавит
             GronsfeldTable.Add(alphabet);
 
-            for (int i = 1; i < 10; i++)
+            for (int i = 1; i < 10; i++) //заполняем таблицу
             {
                 GronsfeldTable.Add(new Func<string>(() =>
                 {
@@ -24,8 +24,8 @@ namespace Gronsfeld
                 })());
             }
 
-            string encryptedText = Console.ReadLine().Replace(" ", "").ToLower();
-            string key = new Func<string>(() =>
+            string encryptedText = Console.ReadLine().Replace(" ", "").ToLower(); //считываем зашифрованное сообщение
+            string key = new Func<string>(() => //считываем ключ и дописываем его до длинны шифротекста
             {
                 string returnableValue = Console.ReadLine().Replace(" ", "").ToLower();
                 if (pattern.IsMatch(returnableValue))
@@ -48,9 +48,9 @@ namespace Gronsfeld
                 }
             })();
 
-            char[] unencryptedText = new char[encryptedText.Length];
+            char[] unencryptedText = new char[encryptedText.Length]; 
 
-            for (int i = 0; i < unencryptedText.Length; i++)
+            for (int i = 0; i < unencryptedText.Length; i++) //расшифровываем сообщение путём взятия буквы из алфавита под индексом соответсвующим зашифрованной буквы
             {
                 int charIndexer = Convert.ToInt32(unencryptedText[i]) - 97;
                 int keyIndexer = Int32.Parse(Convert.ToString(key[i]));

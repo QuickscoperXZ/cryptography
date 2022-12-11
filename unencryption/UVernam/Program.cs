@@ -7,8 +7,8 @@ namespace Vernam
     {
         static void Main()
         {
-            string encryptedText = Console.ReadLine().ToLower().Replace(" ", "");
-            char[] key = new Func<char[]>(() =>
+            string encryptedText = Console.ReadLine().ToLower().Replace(" ", ""); //считываем зашифрованное сообщение
+            char[] key = new Func<char[]>(() => //считываем ключ и дописываем его до длинны сообщения
             {
                 string returnableValue = Console.ReadLine().Replace(" ", "").ToLower();
                 if (returnableValue.Length != encryptedText.Length)
@@ -26,7 +26,7 @@ namespace Vernam
                 }
             })();
 
-            string unencryptedText = new Func<string>(() =>
+            string unencryptedText = new Func<string>(() => //расшивроывываем путём поразрядного исключаещего или ключа и шифротекста
             {
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < encryptedText.Length; i++)
